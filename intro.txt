@@ -1,0 +1,81 @@
+===Image file formats
+
+Compressed /                            Uncompressed
+smaller                                      raw image
+processing involved in viewing                data
+ 
+jpg/jpeg                                bmp        
+png                                     tiff        
+webp                                    raw formats for digital formats         
+gif                                             
+Run-Length
+
+
+Lossy    /                                 Lossless
+loses some original info                   retains all original info
+jpg                                        bmp 
+                                           tiff
+less data but tyhe same info??
+GGGGGYYYRRRR
+
+or...
+
+5G3Y4R       Run-Length Encoding
+this is not too good for sequences of length 1 
+real life phoos do not benefit from this, too much variation
+
+Raster   /                                
+represented as a grid of pixels               
+Vector
+represented as a list of drawing instructions
+.svg
+
+
+
+netpbm.ppm [header]
+P3[header]
+XRES YRES[header]
+MAX_COLOR_VALUE
+R G B[pixel 1] R G B [pixel2 ] R G B[pixel 3 ]
+all white space is equivalent
+
+
+
+
+file....example..pic.ppm
+P3
+10 10 225
+225 225 0 
+225 225 0 225 225 0 225 225 0 
+225 225 0 225 225 0 
+225 225 0 
+225 225 0 225 225 0 225 225 0 
+225 225 0 225 225 0 
+
+225 225 0 
+225 225 0 225 225 0 225 225 0 
+225 225 0 225 225 0 
+
+225 225 0 
+225 225 0 225 225 0 225 225 0 
+225 225 0 225 225 0 
+
+
+
+
+how to activate
+display [file name]
+in emacs ctrl c + ctrl c to view the image as an image 
+never upload the ppm to github
+can also use convert[old] [new ] to chamge to png for upload
+
+
+
+
+
+
+
+
+
+
+

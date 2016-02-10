@@ -1,0 +1,183 @@
+===Image file formats
+
+Compressed /                            Uncompressed
+smaller                                      raw image
+processing involved in viewing                data
+ 
+jpg/jpeg                                bmp        
+png                                     tiff        
+webp                                    raw formats for digital formats         
+gif                                             
+Run-Length
+
+
+Lossy    /                                 Lossless
+loses some original info                   retains all original info
+jpg                                        bmp 
+                                           tiff
+less data but tyhe same info??
+GGGGGYYYRRRR
+
+or...
+
+5G3Y4R       Run-Length Encoding
+this is not too good for sequences of length 1 
+real life phoos do not benefit from this, too much variation
+
+Raster   /                                
+represented as a grid of pixels               
+Vector
+represented as a list of drawing instructions
+.svg
+
+
+
+Bresenham's Line Algortithm 
+
+such as y = mx + b
+inefficint: chack x and y's and see what fits
+y = (dY / dX)x  + b
+(dX) Y = (dY)X + (dX)B
+0 = (dY)X -(dX)y + (dX)B
+A = dY
+B = -dX
+C = (dX)  b
+0 = Ax + By  + c
+f(x,y) = 0
+
+0: (x,y) is on the line
+
+in graphics , split the grind into OCTANTS
+-in octant 1 , slope is between 0 and 1
+
+if a point is above octant 1, y is larger because B is lesser (neg.value)
+< 0: (x,y) is above the line
+> 0 : (x,y) is below the line
+
+
+To draw a line: you need the endpoints
+(x,y)
+you have only 2 more options
+1    --(x+1,y+1)
+2    --(x+1 , y ) 
+OR
+*(x+1, y+1/2) /checking the midpoint
+
+
+
+2/9
+
+######
+####.#
+######
+.#####
+
+we need to figure out which pixels to stimulate this line
+2 options:
+(x + 1, y)
+(x+ 1 , y+1)
+we can test both OR look at the midpoint   mp.(x+1, y + [1/2])
+its not a pixel, but a plot beqtween the pixels
+calculate f(x+1 ,  y + 1/2) 
+if: ==0, it's on the line. This means you can color either one
+if: <0 : y is bigger than it should be [from the formula above] and midpt is ABOVE the line. coloe the bottom pixel (x+1 , y)
+if > 0 : y value is too small, midpt is below the line, color in the pixel above (x+1,y+1)  
+
+-First Draft algorithm, in pseudo code
+(Xo , Yo) ->(x1,y1)
+X = Xo
+Y = Yo
+while (x<= X1)
+plot(x,y)
+delta = f(x+1 ,y+ [1/2])
+//now we need to check the cases
+if (d>0)
+	y+=1
+x+=1
+
+//..the calculation of delta seems inneficient
+initial value of d
+d = f(Xo + 1 , Yo + 1/2)
+d = A(Xo +1)  B(Yo + 1/2) +  C
+[expand]
+d = AXo +BYo + C + A +1/2 B
+we found f(Xo, Yo)
+d=0+ A + 1/2 B
+d = A + 1/2 B
+-second Draft Algorithm
+
+d = A + 1/2 B
+while (x<= X1)
+	plot (x,y)
+	if (d > 0 )
+	Y+=1
+X+=1 
+d = f(x+1 , y = 1/2)
+if d < 0     .....
+x -> x+1   
+y-> y
+
+f(x+1 , y )
+d = A(x+1 ) + B y + c
+d = Ax + By +C + A
+d = d + A
+
+if d> 0 
+x->x+1 ,  y-> y+1
+f(x+1, y+1)
+d= Ax + Bx + C + A + B
+d=A + B
+
+
+-third draft:
+d = A + 1/2 B
+while (x<= X1)
+        plot (x,y)
+        if (d > 0 )
+        Y+=1
+	d +=B
+X+=1 
+d+=A
+
+fixing the pesky 1/2
+d = A + 1/2 B
+2d = 2A + B
+
+2d = 2d +2 A      OR 2d =2d +2A + 2B
+
+therefore
+____
+d = 2A + B
+while (x<= X1)
+        plot (x,y)
+        if (d > 0 )
+        Y+=1
+        d +=2B
+X+=1
+d+=2A
+//this is the line algorithm for octant 1
+Octant 2:  the slope is greater than 1, less than inf.
+a < M
+##.##
+#####
+#####
+#####
+.#### , here we check (x,y+1) and (x+1 , y+1)
+where did we get initial d ?
+f(Xo + 1/2, y+ 1 )
+AXo+BYo+C + 1/2A + B
+A = dY
+B = - dX
+d = A + 2B
+while (y < Y1)
+	plot(x,y)
+	if(d<0)
+	x+=1
+	d+= 2 A
+y+=1
+	d+=2B
+
+
+
+
+
