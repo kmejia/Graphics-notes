@@ -138,7 +138,7 @@ while (x<= X1)
 	d +=B
 X+=1 
 d+=A
-
+2/10
 fixing the pesky 1/2
 d = A + 1/2 B
 2d = 2A + B
@@ -183,3 +183,8 @@ y+=1
 
 -octant 8
 -1 < m < 0 
+
+2/11
+think about how you aare reppuing pixels
+2D array
+struct for pixels	
