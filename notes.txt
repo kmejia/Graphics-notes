@@ -224,10 +224,10 @@ connection matrix 0 1 2 3
 
 ....
 	draw_lines(edges)
-
+--------------------------------------------------------------
 2/23
 Matrix Math
-- scalar multiplication
+- scalar multiplication, recall that s is just a number
     a  b         sa  sb
 s *[     ]   = [         ]
     c  d         sc  sd
@@ -247,7 +247,7 @@ m0*m1=/=m1*m0
  g h i     3 6          (1g+2h+3i) (4g+5h+6i)
 
 - matrix multiplicative identity
-all values on the diagonal are 1, othersare zero
+all values on the diagonal are 1, others are zero
 square
 [1 00  a 
 010   [b]
@@ -260,3 +260,52 @@ scaling
  0b00   y           by
 [00c0] [z]        =[cz]
  0001   1            1
+-------------------------------------------------------------------
+2/24
+Scaling
+(x , y , z)S(a,b,c)   -> (ax, by, cz)
+  x
+  y
+[    ]
+  z 
+  1
+
+
+ a000   x           ax
+ 0b00   y           by
+[00c0] [z]        =[cz]
+ 0001   1            1
+
+translating
+(x,y,z) T(a,b,c) ----->(x+a, y+b,z+c)
+
+  1000         x     x+a
+  0100         y     y+b
+[          ]  [ ] = [    ]
+  0010         z     z+c
+  0001         1      1
+  //***//one of the important reasons why we keep the 1 in the bottom of the column
+
+Rotating
+(x,y,z)R(axis ,angle) --->( ?,? , ?)
+ex: z axis --->(?,?,z)
+
+y|
+ | .(Xr,Yr)
+ | /   _ .(x,Y)
+ |/__/-___
+use polar coordinate system
+x=rcos(phi)
+y=rsin(phi)
+
+Xr =rcos(phi + theta)
+   rcos(phi)cos(theta)-rsin(phi)sin(theta)
+   xcos(theta) -ysin(theta)
+
+
+
+[cos(theta) -sin(theta) 0 0]             x
+sintheta costheta 0 0                   [y]    =  [xcostheta -ysintheta
+0          0      1 0                    z         ycostheta +xsintheta
+0          0      0 1                    1              z
+                                                        1
