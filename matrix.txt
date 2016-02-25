@@ -1,0 +1,162 @@
+2/22
+Using Matrices
+
+draw a square and rectangle
+        p1        p4      p5 
+    p0        p2   p3     p6
+
+with a list of points, it can get easier to rotate, shrink, etc.
+point Matrix [  p0 p1 p2 p3 p4 p5 p6]
+
+while ( i  < points.length)
+      draw_line(points[i] , points[i + 1])
+      i++
+under this , some lines would be missing, and this would prodice a snake-like
+image
+there are also possible other ways toexpress this
+shape matrix[[p0 p1 p2] [p3 p4 p5 p6]]
+edge  matrix [ p0p1 ,p1p2 .....]
+connection matrix 0 1 2 3
+		0[f t t f ]
+	   	1fttf
+		2ttff
+		3fftt
+
+ x0 x1 x2 x3
+[           ...         ]   
+ y0 y1 y2 y3
+ z0 z1 z2 z3...
+ 1  1  1  1 ...
+  edges = new_matrix()
+  add_edge(edges, p0 ,012)
+
+....
+	draw_lines(edges)
+--------------------------------------------------------------
+2/23
+Matrix Math
+- scalar multiplication, recall that s is just a number
+    a  b         sa  sb
+s *[     ]   = [         ]
+    c  d         sc  sd
+- matrix multiplication
+m0*m1=/=m1*m0
+# of columns in m0 = # of rows in m1
+              1
+[a b c]  *  [ 2 ]   = [1a +2b +3c]
+              3
+1 * 3     3  * 1
+..the 2 inners must be the same
+..2 outers make up the new matrix
+[A*B][B*C] = [A*C]
+
+  a b c    1 4        (1a+2b+3c) (4a+5b+6c)
+[ d e f ] [2 5]  =   [ (1d+2e+3f) (4d+5e+6f)]
+ g h i     3 6          (1g+2h+3i) (4g+5h+6i)
+
+- matrix multiplicative identity
+all values on the diagonal are 1, others are zero
+square
+[1 00  a 
+010   [b]
+001]   c
+
+Graphics matrix
+scaling
+(x , y , z)S(a,b,c)   -> (ax, by, cz)
+ a000   x           ax
+ 0b00   y           by
+[00c0] [z]        =[cz]
+ 0001   1            1
+-------------------------------------------------------------------
+2/24
+Scaling
+(x , y , z)S(a,b,c)   -> (ax, by, cz)
+  x
+  y
+[    ]
+  z 
+  1
+
+
+ a000   x           ax
+ 0b00   y           by
+[00c0] [z]        =[cz]
+ 0001   1            1
+
+translating
+(x,y,z) T(a,b,c) ----->(x+a, y+b,z+c)
+
+  1000         x     x+a
+  0100         y     y+b
+[          ]  [ ] = [    ]
+  0010         z     z+c
+  0001         1      1
+  //***//one of the important reasons why we keep the 1 in the bottom of the column
+
+Rotating
+(x,y,z)R(axis ,angle) --->( ?,? , ?)
+ex: z axis --->(?,?,z)
+
+y|
+ | .(Xr,Yr)
+ | /   _ .(x,Y)
+ |/__/-___
+use polar coordinate system
+x=rcos(phi)
+y=rsin(phi)
+
+Xr =rcos(phi + theta)
+   rcos(phi)cos(theta)-rsin(phi)sin(theta)
+   xcos(theta) -ysin(theta)
+
+
+
+[cos(theta) -sin(theta) 0 0]                   x
+sin(theta)  cos(theta)  0 0                   [y]    =  [xcostheta -ysintheta
+0           0           1 0                    z         ycostheta +xsintheta
+0           0           0 1                    1              z
+                                                               1
+____________________________________
+2/25
+
+(x,y,z)   R[x,theta] -->(x,ycos(theta) - zsin(theta),ysin(theta)+zcos(theta))
+^z
+|
+|
+|
+|
+|
+|________ >
+     y
+
+R[z, theta] -->(xcos -ysin, xsin  +ycos,z)
+[cos  -sin 0 0]
+sin    cos 0 0
+0        0  1 0
+0        0 0 1
+
+
+R[x,theta]-->(x,ycos(theta) - zsin(theta),ysin(theta)+zcos(theta))
+[1  0  0   0]
+0 cos -sin 0
+0 sin  cos  0
+0   0  0   1
+
+R[y, theta]-->( xcos-zsin, y ,xsin +zcos)
+[cos 0 -sin 0]
+0    1   0  0
+sin  0  cos 0
+0    0   0  1
+
+Applying Transformations
+
+Eo: edge matrix T:translation
+S:scale     R:rotation
+
+T * Eo  = E1,E1 is what's translated  affine transformation
+S * E1  = E2: translated ->scaled
+R * E3  = E3: trans->scaled->rotated
+ E3=R*S*T*E0
+ E3-(RST)Eo
+ note: it does the translation to scaling to rotating, not in the obvious order
