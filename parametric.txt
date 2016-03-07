@@ -1,0 +1,17 @@
+Parametrix eqtns.
+x and y are independent, and inseatd are fxns of another var
+x=f(t),tt+2t +2
+y=g(t)1-(t/2^t)
+t :  0-> 1
+
+for (t=.1 ;t<2;t+=0.1)
+    x0=param_x(t)	
+	y=param_y(t)
+
+
+
+
+make fuxns
+double param_x(double t){
+       return t * res
+}
