@@ -15,3 +15,24 @@ make fuxns
 double param_x(double t){
        return t * res
 }
+
+
+how to gen curves
+    .
+   .  .
+..      .  ..  .
+more points makes a more true curve
+spline
+hermite curve
+po,p1:endpoints
+ro,r1:rates of change at each end point
+F(t) = attt+btt+ct+d:points on the curve
+f'(t)=3att+3bt+c :rates of change
+when t = 0
+     f(t) = d:po
+     f'(t) = cRo
+
+when t = 1
+     f(t) = a + b + c +d 
+     f'(t) = 3a + 2b + 2c
+     
