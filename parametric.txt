@@ -36,3 +36,79 @@ when t = 1
      f(t) = a + b + c +d 
      f'(t) = 3a + 2b + 2c
      
+
+_______________________________________________________________________
+3/9
+Hermite curves
+P0 p1 
+      >attt + btt +ct + d
+r0 r1
+       d             po    
+      a+b+c+d        p1
+     [        ]   =[      ] 
+        c            r0
+      3a +2b+c       r1
+
+top get this...
+[0001     [a
+1111    *  b   
+0010       c 
+3210]      d ]
+
+
+[H]*[C]=[G]
+c= g/h
+[h^-1 ][h]*[c] = [H^-1] * [G]
+c = [h^-1] * [G]
+
+H^-1   ==
+[2 -2 1 1
+-3 3 -2 1
+0  0 1  0
+1  0 0  0
+
+Bezier Curves
+inputs P0 P3:endopints
+p1,p2, wick pull the curve towards it
+
+
+linear BC
+         -p1
+        /
+po__----/
+p(t) = (1-t)p0 +tp1
+3/10
+Linear
+        to   p1 
+po
+P(t) = (1-t)p0 +tP1
+
+Quadratic
+R(t) = (1-t) r0 + tR1
+R0(t)= (1-t)p0 +tp1
+R1(t) = (1-t)p1 +tp2
+R(t) = *after algebra
+     = (1-t)^2P0 +2t(1-t)P1 + T^2P2
+
+
+Cubic
+Q(t) =(1-t)Q0 +t(Q1)
+
+3/11
+p0p1p2p3->
+R(t) =(1-t)Q0 +tQ1
+     =(1-T)^2p0 +3T(1-t)^2P1+3t^2(1-t)P2+T^3P3
+
+
+a is (-p0+3P1 -3P2 +P3)t^2
+b is (3P0-6P1+3P2)t^2
+c is (-3P0+3P1)t
+d is P0
+
+
+
+
+[-1 3 -3 1]    [p0]  [a][ (-p0+3P1 -3P2 +P3)t^2]
+[3 -6  3 0]    [p1] == [b][(3P0-6P1+3P2)t^2]
+[-3 -3 0 0]    [p2]  [c][ (-3P0+3P1)t]
+[1  0  0 0]    [p3]  [d][P0]
