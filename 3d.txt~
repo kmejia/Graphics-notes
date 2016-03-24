@@ -1,0 +1,6 @@
+3D shapes
+Box, spere, torus, bezier/Hermite surfaces
+
+Box:
+Inputs: width, height, depth
+(x,y,z) as a reference point

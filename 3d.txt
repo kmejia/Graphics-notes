@@ -1,0 +1,45 @@
+3D shapes
+Box, spere, torus, bezier/Hermite surfaces
+
+Box:
+Inputs: width, height, depth
+(x,y,z) as a reference point
+upper-left -front
+
+Sphere:
+[1 0 0 0
+0 cos  -sin  0
+0  sin cos
+0  0  0  1]
+times
+[rcos()
+rsin()
+0
+1]
+
+
+X=r cos(theta)
+Y=r sin(theta)cos(theta)
+Z=rcos(theta)sin(phi)
+if:  theta[0,2pi]
+     phi[0,pi]
+
+semicircle if:theta[0,pi]
+	phi[0,2pi]
+pseudo code:
+for t; 0->1
+for p ;0->1
+x =rcos(pi *t)+cx
+y =rsin(pi*t )cos(2pi *p) +cy
+z =rsin(pi*t)sin(2pi*p)+ cz
+
+
+torus(donut) vs sphere
+x=attt +bttt+ct+d
+y=a'ttt + b'tt +c't+d
+z=
+
+generating 3d has 2 parts, addsphere and generatesphere
+after generating, the points will be 1/step in number
+the other draws the appriopriate longitude and lattitude lines such that when drawn
+ a sphere is formed
