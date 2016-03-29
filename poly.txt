@@ -1,0 +1,9 @@
+Wireframe /Polygon Meshes
+
+Wireframe{only has the 8 edges if this was a cube]
+-3D objects are defines as the edges that connect the vertices/points
+-works well with the existing edge matrix framework
+Polygon Surfaces
+-3D objects are defined as the surfaces(triangles or quadrilaterals) that
+cover the object
+-Move from edge matrix to polygon matrix
