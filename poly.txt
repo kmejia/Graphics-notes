@@ -36,3 +36,26 @@ p2p0
 -add_point
 -add_polygon**
 
+Polygon Meshes
+points have to be entered in counterclockwise order
+Box
+//front
+p0p1p2
+p2p3p0
+//back
+p4p5p7 would be incorrect, it isn't counter-clockwise
+p7p5p4
+p7p6p5
+
+
+Sphere
+     0   
+  7     1  
+6         2
+ 5      3
+     4
+
+1,2, 12 \ 
+         }i, i+1 ,i + n+1 
+1,12,11 / i,i+n+1 , i + n    
+
