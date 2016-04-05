@@ -58,4 +58,29 @@ Sphere
 1,2, 12 \ 
          }i, i+1 ,i + n+1 
 1,12,11 / i,i+n+1 , i + n    
+4/5
+removing backfaces
 
+backface culling
+-the process of remdering only the faces that are facing forward.
+Sruface normal
+-vector perpendicular to a certain plane
+-is shows the directionn a surface is facing(n->) 
+-the view vector/camera(V->) shows the direction of the observer
+
+90<theta<270 will constitute a front face, then you have to drawthe surface
+algorithm
+1.calculate n->
+2. find theta between surcafe normal and view vector
+view vector is something you set, not calculate
+3. if <90 theta <270, draw the polygon
+
+calculate N->
+	  -cross product of 2 vectors that share a common endpoint and
+	  go in different directions
+	  -works if points are counterclockwise
+
+A X B =<aybz-AzBy ,
+        AzBx-AzBz ,
+	AxBy-AyBx >
+N-> ==<Nx,Ny,Nz>
