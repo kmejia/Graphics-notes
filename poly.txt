@@ -79,8 +79,17 @@ calculate N->
 	  -cross product of 2 vectors that share a common endpoint and
 	  go in different directions
 	  -works if points are counterclockwise
-
+______________________________________________________________________
+4/6
 A X B =<aybz-AzBy ,
         AzBx-AzBz ,
 	AxBy-AyBx >
 N-> ==<Nx,Ny,Nz>
+
+Find theta
+theta
+->
+V=<0 , 0 , -1>
+
+N* V = |N||V|cos(theta)
+=NxVx+NyVy + NzVz
