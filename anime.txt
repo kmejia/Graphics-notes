@@ -1,0 +1,22 @@
+animation
+loop needed, can be used in parser
+Relative coordinate system
+-currently we use a global coordinate system -each object is drawn with
+respect to the same origin/coordinate system
+P-> [1003   -> P(x+3)(Y+2)
+     0102
+     0020
+     0001]
+
+-in a relative Coordinate system, each object can have its own coordinate system
+-WE will use a stack to store the varopus coordinate systems   
+stack(last one in is the first one to pop off
+
+Graphics Framework
+A. Transformations are applied to the top of the stack
+B. The stack will be pushed and popped as needed
+C. Drawing pipeline:
+   1 Generate points
+   2 multiply points by stack top
+   3 Draw the object to the screen
+   4 Clear the point matrix
