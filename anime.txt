@@ -20,3 +20,77 @@ C. Drawing pipeline:
    2 multiply points by stack top
    3 Draw the object to the screen
    4 Clear the point matrix
+
+Command	   Stack     Image
+	   I matrix  origin at bottom left
+	   I
+translate   To*I     origin at center
+	I
+
+box
+x y z whd   To*I  square at the origin
+	    I
+translate   T1*To*I  Image with center above where the square is
+xyz          T0*I
+	     I
+
+
+Sphere
+x y z r		T1*To*I		sphere at the "new center"
+        	 T0*I
+	 	 I
+pop		T0*I	new center becomes center pf the box[body]
+		I
+
+
+4/19
+source code->compiler-> machine code
+     '' ''  	-->1.Lexer ->2.parser -> semantic analyzer
+     	->optimizer ->code generator ->""machine code
+
+Lexer
+-performs lexica analysis
+-knows all valid tokens in the language
+-generates a list of tokens
+int main() {              int
+long x=5+6;	             IDENT main		
+printf("hi"); ====>>>>>>   (
+return x;                   )
+}                            long
+                              x
+			      =
+			      5
+			      +
+			      6
+			      ;
+
+Parser
+-parser syntax analysis
+-knows the grammar of the language
+-generates a syntax tree
+	    -main
+-tell you the order to do things in
+4/20
+this is what the output of the parser is
+[tree]
+->3 semantic analyser
+.eventually this will turn into code aka computer's instructions
+-knows what tokens map to computer operations
+-Generates
+	1)symbol table
+	2)list of operations in the order they must be performed
+>Symbol table
+main f int
+x    long
+printf f int
+
+>operaions list
++: 5,6
+=: x,
+printf ..
+return : x
+
+---->optimizer
+recognozes paterna that can be done ina  different way
+code generator will knwo what operatins ma to what proc4ssor instructions
+generates thr program machine code
