@@ -94,3 +94,7 @@ return : x
 recognozes paterna that can be done ina  different way
 code generator will knwo what operatins ma to what proc4ssor instructions
 generates thr program machine code
+
+
+program tha makes a lexer: flex
+
