@@ -98,3 +98,29 @@ generates thr program machine code
 
 program tha makes a lexer: flex
 
+5/3
+[.   ]----->[_.   ]
+in mdl: 400 0 0 {factor}
+moving is repeated transformations
+frame
+0 move 400 0 0 ____0%(knob)
+1 move 400 0 0 ____25%
+2 move 400 0 0 ____50%
+3 move 400 0 0 ____75%
+4 move 400 0 0 ____100%
+5 move 400 0 0 ____
+new command: very {factor} 0 4 0 1
+    	     	  	  start/endframe---start/end values
+new mdl commands
+-frames <N>
+	-set the number of frames in the animation
+	-must be an integer
+-basename<S>
+	-set the prefix	for all  frame filenames
+vary <knob> <f0> <f1> <v0> <v1>
+     -describe how the knob changes over time
+
+
+
+
+
