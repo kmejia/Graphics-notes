@@ -1,0 +1,19 @@
+the deal
+start as the baseline for mdl and animation
+-adding to that
+	scanline conversion, lighting and shading
+	removal of surfaces behind other surfaces
+	(other) mdl features....spec
+	mesh
+	tweening
+	
+Scanline conversion
+[filling in polysongs by repeatedly draswing lines across the surface]
+delta0: always bottom to top
+Xt-Xb /(Yt -Yb)
+
+delta1: bottom to middle point or middle to top
+switch the two if we each point m
+if Y>Ym
+ (Xm-Xb)/(Ym -Yb)
+this will make sure that you don't divide by zero
