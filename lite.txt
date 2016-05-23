@@ -1,0 +1,33 @@
+Modeling Real World Lighting
+
+color is a combination of light(generally white) plus what gets reflected from the object(everything else gets absorbed)
+1 . reflective properties of the object
+2 . color and intensity of the light
+
+Lighrting equation
+-goal is to calculate a color value[0-255] for each polygon (or pixel)
+-to generate grayscale images you need to compute the color once per polygon
+-to generate a color image, you need to compute seperate red, green,  and
+    blue values for each polygon
+\
+I(illumination)
+Ir
+Ig
+
+
+I = I(ambient) + I(diffuse) + I(specular)
+differnet life sources and types of reflection
+
+2 types of lighty sources
+  1-ambient light
+  	    background lighting, hits everything equally
+  2-point light sources	    
+  	  light from a particlar locations with a particular direction
+	  Reflections are based on the relative location of the surface with
+	  	      respect to light
+I ambient
+  combination of the color of ambient light and the amount of ambient reflection
+  	      for the surface
+I diffuse
+  R eflection of a point source where the light is reflected early in all
+  	      directions
