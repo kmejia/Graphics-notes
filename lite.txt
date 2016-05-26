@@ -31,3 +31,63 @@ I ambient
 I diffuse
   R eflection of a point source where the light is reflected early in all
   	      directions
+
+5/25
+
+
+
+I = I(ambient) + I(diffuse) + I(specular)
+I ambient
+  combination of the color of ambient light and the amount of ambient reflection
+  	      for the surface
+I diffuse
+  Reflection of a point source where the light is reflected early in all
+  	      directions
+	      light comes from a specifi point
+	      reflected equally in all directions
+
+I Specular
+  light comes from a specific point
+  reflected in a specific direction
+	      
+quality of light
+        ambient
+		represented by a color value(0-255)
+	point light sources
+	      represented by a color value and the location of the light
+
+Reflective properties
+	   represented as as % of the light that is reflected back (constants)
+	   Ka,Kd , Ks
+	   Ka +Kd + Ks = 1.0
+
+5/26
+Ambient
+Ca = ambient color
+Ka = constant of ambient reflection;;this is a %
+ I(ambient ) = Ca *Ka
+
+
+Diffuse
+	diffuse reflection
+		this reflects everwhere
+->
+L
+light itself is neither diffuse or specular
+
+Cp= color of point light source
+Kd =  constant of diffuse reflection
+
+
+relation between theta and the reflection is similar to backface culling
+I(diffuse) = Cp Kd*cos[theta]
+
+I(diffuse) = 
+
+cos
+Use dot product of L and N
+we need to turn L and N into unit vectos(normalized)
+
+Specular Reflection
+L and R vectors
+I(specular) =
