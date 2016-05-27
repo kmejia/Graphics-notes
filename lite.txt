@@ -87,7 +87,29 @@ I(diffuse) =
 cos
 Use dot product of L and N
 we need to turn L and N into unit vectos(normalized)
-
+5/27
 Specular Reflection
 L and R vectors
-I(specular) =
+I(specular) = Cp*Ks Cos(alpha)
+	    = Cp*Ks
+
+->
+P: projection of L^ onto N
+P->   = N^& cos(theta)
+ N^ (L^ * N^)
+S^ = P_> - L^
+R_> = P_> + S_>
+
+R = P + P - L
+  =2P - L
+R_> = 2(L^ * N^ )N^ - L
+cos(alpha)=(2 (L^ * N^)N^ - L^ )V->
+
+Shading Models
+-How do we calculate I
+1.Flat shading
+       -calculate once oper polygon
+       -uses the same color for an entire polygon
+1. Gourad Shading
+   -calc once per each vertex normal
+   -combination of the surface normals of all polygons that share a given vertex
