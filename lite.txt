@@ -113,3 +113,21 @@ Shading Models
 1. Gourad Shading
    -calc once per each vertex normal
    -combination of the surface normals of all polygons that share a given vertex
+
+
+
+shading if different from lighting model
+ Gourad Shading
+   -calc once per each vertex normal
+   -combination of the surface normals of all polygons that share a given vertex
+
+q_> ===(Na + Nb + Nc + Nd)
+Phong Shading
+	calculate vertex normals
+	interpolate thr normal over scanline conversion and drawline
+	calculate I with each normal (per pixel)
+
+
+6/2
+final project6 due monday the 13
+animation code is up
